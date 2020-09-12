@@ -1,0 +1,299 @@
+#!/bin/bash
+
+for i in {1. .10 .1}
+do
+echo "Enter directory name: "
+read dirname
+
+if [ ! -d "$dirname" ]
+then
+	#cd ..
+
+	mkdir ./$dirname
+
+	echo "Directory created"
+else
+	echo "Directory already exists"
+fi
+done
+======================================================================
+#!/bin/bash
+
+echo "select any one  from following option"
+
+echo "1. To find length of the string"
+echo "2. Copy String"
+echo "3. Concatinate String "
+echo "4. Compare two string"
+echo "5. Reversing a string"
+
+
+
+read ch
+
+echo "Enter a string: "
+
+read inpt
+
+case $ch in
+
+	1)
+		echo "length of" ${inpt} "is ${#inpt}";;
+
+	2)
+		echo $inpt;;
+	3)
+		echo "Enter another string: "
+		read inpt2
+
+		echo $inpt " " $inpt2;;
+
+	4)
+		echo "Enter another string tp compare"
+		read inpt2
+
+		if [ "$inpt" = "$inpt2" ]
+		then
+			echo "Strings are equal"
+		else
+			echo "Strings are not equal"
+		fi;;
+
+	5)
+		cpy=${inpt}
+		len=${#cpy}
+
+
+		for ((i=$len-1; i>=0; i-- ))
+		do
+		rev="$rev${cpy:$i:1}";
+		done
+
+		echo "rev: $rev"
+
+
+esac
+======================================================================
+#!/bin/bash
+
+echo "Files will be changed to numeric value"
+
+vat= ls -d */
+
+len=${#vat}
+echo $len
+
+i=0
+
+for dir in *
+do
+	if [ -d "$dir" ]
+	then
+
+#echo $dir
+	mv "${dir}" "${dir}_$i"
+	i=$(($i+1))
+#echo "$i"
+fi
+
+done
+
+#for ((i=0; i<=$vat; i++))
+$do
+#	echo $i
+#done
+======================================================================
+#!/bin/bash
+
+
+
+echo "home: $HOME"
+echo "path: $PATH"
+echo "shell: $SHELL"
+echo "history: $HISTORY"
+echo "logname: $LOGNAME"
+echo "term: $TERM"
+======================================================================
+#!/bin/bash
+
+#echo $(ls -l)
+
+for dir in *
+do
+	if [ ! -d "$dir" ]
+	then
+	#	echo $(ls -l "$dir")
+	temp=$(ls -l "$dir")
+	echo $temp |cut -b 1-10
+
+	#echo $($temp | cut -b 1-5)
+fi
+done
+======================================================================
+#!/bin/bash
+
+#echo $(ls -l)
+
+for dir in *
+do
+	if [ ! -d "$dir" ]
+	then
+	echo $(ls -l "$dir")
+fi
+done
+======================================================================
+#!/bin/bash
+
+#check whether it is leap year
+
+echo "Enter a year: "
+read inpt
+
+if (( $inpt%400 == 0 || $inpt%4 == 0 && $inpt%100 !=0 ))
+then
+	echo "Leap Year!"
+else 
+	echo "Not a leap year."
+
+fi
+======================================================================
+case $num in
+
+1) echo "Sunday" ;;
+2) echo "Monday" ;;
+3) echo "Tuesday" ;;
+4) echo "Wednesday" ;;
+5) echo "Thursday" ;;
+6) echo "Friday" ;;
+7) echo "Saturday" ;;
+
+
+esac
+
+======================================================================
+ echo "enter number between 1 to 7"
+  read num
+
+  if [[ $num -eq 1 ]]
+then 
+       echo "Sunday"  
+elif [[ $num -eq 2 ]]
+
+   then 
+      echo "Monday"
+elif [[ $num -eq 3 ]]
+
+     then  
+
+      echo "Tuesday"
+
+lif [[ $num -eq 4]]
+
+   then 
+      echo "Wednesday"
+      lif [[ $num -eq 5]]
+
+   then 
+      echo "Thursday"
+      lif [[ $num -eq 6 ]]
+
+   then 
+      echo "Friday"
+      lif [[ $num -eq 7 ]]
+
+   then 
+      echo "saturday"
+   fi
+======================================================================
+echo "enter 1st number"
+read num1
+echo "enter 1st number"
+read num2
+echo "enter 1st number"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+ then 
+   echo " $num1 is greatest number"
+
+   elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+     then
+       echo " $num2 is greatest number"
+else
+      echo " $num3 is greatest number"
+fi
+
+======================================================================
+echo "enter 1st number"
+read num1
+echo "enter 1st number"
+read num2
+echo "enter 1st number"
+read num3
+
+sum=`expr $num1 + $num2 + $num3`
+avg=`expr $sum / 3`
+echo "Sum = $sum"
+echo "Average = $avg"
+======================================================================
+read -p "Enter a number: " number
+if [ $((number%2)) -eq 0 ]
+then
+  echo "Number is even."
+else
+  echo "Number is odd."
+fi
+
+======================================================================
+echo "Enter two numbers"
+read num1 num2
+sum = 'expr $num1 + $num2'
+echo "The sum is = $sum"
+
+======================================================================
+    
+
+a=10
+b=20
+ 
+sum=$(( $a + $b ))
+ 
+echo $sum
+
+======================================================================
+
+$ echo 'scale=4;10+20' | bc
+
+======================================================================
+N=10 
+a=0  
+b=1 
+
+echo "The Fibonacci series is : "
+
+for (( i=0; i<N; i++ )) 
+do
+	echo -n "$a "
+	fn=$((a + b)) 
+	a=$b 
+	b=$fn 
+done
+
+======================================================================
+echo "hello world"|rev
+
+======================================================================
+input="$1"
+reverse="Pravin"
+ 
+len=${#input}
+for (( i=$len-1; i>=0; i-- ))
+do 
+	reverse="$reverse${input:$i:1}"
+done
+ 
+echo "$reverse"
+
+======================================================================
+read -p "Enter a number: " num
+echo $num | rev
