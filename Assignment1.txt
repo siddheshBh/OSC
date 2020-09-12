@@ -1,0 +1,252 @@
+A) Create three directory a b and c and create a.txt,b.txt and c.txt
+		in each directory respectively and then copy c directory into the a.
+-->1.
+	mkdir a b c
+	touch a.txt
+	touch b.txt
+        touch c.txt
+
+B)Move Directory b to c.
+-->
+	mv b c
+
+
+C)Create alias of ls -lh command to your name.
+--> 
+	sudo vi .bash_profile
+	alias list='ls -lh'
+
+D)Change Directory name a to cdac.
+-->
+	mv a cdac
+
+=========================================================================================
+A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+    Also Use cat to view all file content together.
+-->
+	touch file1.txt
+	touch file2.txt
+        touch file3.txt
+	touch file4.txt
+	touch file5.txt
+
+	grep "s" *.txt      
+
+	cat file1.txt | grep s
+        cat file2.txt | grep s
+        cat file3.txt | grep s   
+	cat file4.txt | grep s
+	cat file5.txt | grep s
+
+
+B)Create file.txt using cat and edit that using nano editor.
+-->
+        cat > file.txt
+	nano file.txt
+
+c)Create 5 empty files using touch command
+-->
+	touch file1.txt file2.txt file3.txt file4.txt file5.txt
+      
+D)Remove previously created directory a , b and c.
+-->
+	rm -R a b c
+	rm -r cdac
+=========================================================================================
+Create a file with some content using vi editor
+-->
+	vi file_using_vi.txt
+    
+a) Display the file using cat command
+-->
+	cat file_using_vi.txt
+	
+b) Display line numbers along with content
+-->
+	cat -n file_using_vi.txt
+
+c) Display the file in reverse order using tac
+-->
+	tac file_using_vi.txt
+
+d) Combine multiple files using cat command
+-->
+	cat f1.txt f2.txt > f3.txt
+=========================================================================================
+
+Create Random some files and sub directories.
+a) display files row wise, column wise, 1 per row
+-->
+	ls -l
+	
+b) sort the files in ascending, descending order
+-->
+
+	ls -1   (sort by name asc)
+	ls -1 -r (sort by name desc)
+
+c) Create some hidden files and sub directories and display them using “ls -a”
+-->
+ 
+	touch .canntc.txt
+	ls -a
+
+d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+-->
+	touch -t ts.txt
+e) Recursive display contents of your home directory.
+-->
+	ls -R
+f) display all attributes of files and directories using ls -l
+-->
+	ls -l
+g) display attributes of a directory using ls -ld
+-->
+	ls -ld
+
+=========================================================================================
+a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+only user and also files permission to only user such that
+a)user can read and write the file a.txt and b.txt
+b)user can write the file c.txt
+c)user can exectuable the file d.sh. Make
+Contents of file d.sh:
+#/bin/sh
+ls -lh
+
+-->
+
+	touch a.txt b.txt c.txt d.sh
+
+
+	chmod 611 a.txt
+	chmod 611 b.txt
+	chmod 211 c.txt
+	chmod 177 d.sh
+=========================================================================================
+ Change the permission of the previous directory to executable only.
+	Analyze the output.
+-->
+	chmod a+x d.sh
+=========================================================================================
+Change the permission of the previous directory to read only.
+-->
+	chmod a+r ../
+
+
+
+=====================================================
+cal => 
+September 2020     
+Su Mo Tu We Th Fr Sa  
+       1  2  3  4  5  
+ 6  7  8  9 10 11 12  
+13 14 15 16 17 18 19  
+20 21 22 23 24 25 26  
+27 28 29 30  
+
+=====================================================
+mkdir a b c
+touch ./a/a.txt ./b/b.txt ./c/c.txt
+cp -r c a
+=========================================================================================
+
+b)Create at least one normal text file in each directory
+-->
+	touch filea.txt ./b/fileb.txt ./b/c/filec.txt
+
+c)Copy c into a
+-->
+	cp -r b/c ./
+
+d)Copy file inside a into b
+-->
+	cp filea.txt b/
+
+
+2.Change the third level directory c permission to read only
+-->
+	chmod a+r b/c
+
+3.Try copying third level c directory to outside of a
+-->
+	cp b/c ../
+
+4.Create the directory  “data“ inside b
+-->
+	mkdir b/data
+
+5.Change the permission of b to read and write only
+-->
+	chmod u+rww b
+
+6.Create directory “data2”  inside b
+-->
+	mkdir b/data2
+
+7.Create data.txt file inside b
+-->
+	touch  b/data.txt
+
+8.Rename the second level directory c to copied_dir
+-->
+	 mv b/c a
+
+9.Change permission of copied_dir to only executable
+-->
+	chmod u+x b/c
+
+13.Now change the owner of the directory a to root
+-->
+	sudo chown root a
+
+14.Change permission of a to read write and executable to only user
+-->
+	chmod 711 a
+ 
+15.Try creating directory sample inside a
+-->
+	mkdir a/d
+
+16.Create directory x outside a
+-->
+	mkdir ../x
+
+17.Try moving x inside a
+-->
+	mv x ./a
+
+18.Create directory movies
+-->
+	mkdir movies
+
+19.Change group of movies to sudo
+-->
+	sudo usermod -aG sudo newuser
+
+20.Change group of movies to avahi
+-->
+	chgrp scifi avahi
+	ls -l avahi
+
+21.Try changing permission after changing ownership to root
+-->
+	sudo chmod --recursive a+rwx /tmp
+
+22.Try Changing permission after changing group to sudo without sudo
+-->
+	pkexec chmod go-w /usr/lib/sudo/sudoers.so
+
+23.Try Changing owner and group both to root
+-->
+	sudo chown -R username:group directory
+
+24.Try changinging permission
+-->
+	sudo usermod -aG sudo newuser
+
+25.Try deleting the file
+-->
+	rm -rf a.txt
